@@ -35,7 +35,7 @@ const PORT = 3000;
 const init = async () =>{
   await models.db.sync({force: true})
 
-  app.listen(PORT, ()=>{
+  app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}!`)
   })
 }
