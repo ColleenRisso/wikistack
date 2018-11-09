@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/wiki', wikiRouter);
 app.use('/user', userRouter);
 
+
 // db.authenticate().then(()=>{
 //   console.log('connnected to the database')
 // })
@@ -23,9 +24,8 @@ app.use('/user', userRouter);
 
 
 
-app.get("/", (req, res)=>{
-  console.log(__dirname)
-  res.send("<h3>Pages</h3>")
+app.get("/", (req, res, next)=>{
+  res.redirect('/wiki');
 })
 
 
@@ -41,8 +41,3 @@ const init = async () =>{
 }
 
 init()
-
-
-app.listen(PORT, () => {
-  console.log(`App listening in port ${PORT}`);
-});
